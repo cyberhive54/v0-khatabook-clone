@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Ledger</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <h1 class="header-title">My Book</h1>
+                <button class="dropdown-btn" id="bookDropdown">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+                </button>
+            </div>
+            <div class="header-right">
+                <button class="profile-btn" id="profileBtn">
+                    <div class="avatar avatar-small">U</div>
+                </button>
+            </div>
+        </header>
+
+        <!-- Summary Strip -->
+        <div class="summary-strip">
+            <div class="summary-card">
+                <div class="summary-label">You will give</div>
+                <div class="summary-amount give">₹0</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-label">You will take</div>
+                <div class="summary-amount take">₹0</div>
+            </div>
+        </div>
+
+        <!-- Search & Filter -->
+        <div class="search-filter">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search contacts...">
+            <div class="filter-controls">
+                <select class="filter-select" id="sortSelect">
+                    <option value="recent">Most recent</option>
+                    <option value="oldest">Oldest</option>
+                    <option value="amount-high">Highest amount</option>
+                    <option value="amount-low">Least amount</option>
+                    <option value="name">Name (A→Z)</option>
+                </select>
+                <select class="filter-select" id="filterSelect">
+                    <option value="all">All</option>
+                    <option value="get">You will get</option>
+                    <option value="give">You will give</option>
+                    <option value="settled">Settled</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Contacts List -->
+        <main class="contacts-list" id="contactsList">
+            <!-- Skeleton loaders -->
+            <div class="contact-row skeleton"></div>
+            <div class="contact-row skeleton"></div>
+            <div class="contact-row skeleton"></div>
+            <div class="contact-row skeleton"></div>
+            <div class="contact-row skeleton"></div>
+            <div class="contact-row skeleton"></div>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" data-page="contacts">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                <span>Contacts</span>
+            </button>
+            <button class="nav-item" data-page="transactions">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg>
+                <span>Transactions</span>
+            </button>
+            <button class="nav-item" data-page="settings">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l1.72-1.34c.15-.12.19-.34.1-.51l-1.63-2.82c-.1-.17-.31-.24-.49-.17l-2.03.81c-.42-.32-.9-.6-1.42-.82l-.3-2.16c-.04-.2-.21-.35-.41-.35h-3.26c-.2 0-.37.15-.41.35l-.3 2.16c-.52.22-1 .5-1.42.82l-2.03-.81c-.18-.07-.39 0-.49.17l-1.63 2.82c-.1.17-.06.39.1.51l1.72 1.34c-.05.3-.07.61-.07.94s.02.64.07.94l-1.72 1.34c-.15.12-.19.34-.1.51l1.63 2.82c.1.17.31.24.49.17l2.03-.81c.42.32.9.6 1.42.82l.3 2.16c.04.2.21.35.41.35h3.26c.2 0 .37-.15.41-.35l.3-2.16c.52-.22 1-.5 1.42-.82l2.03.81c.18.07.39 0 .49-.17l1.63-2.82c.1-.17.06-.39-.1-.51l-1.72-1.34zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+                <span>Settings</span>
+            </button>
+        </nav>
+
+        <!-- Floating Action Button -->
+        <button class="fab" id="fabBtn">+</button>
+
+        <!-- Profile Dropdown -->
+        <div class="dropdown-menu" id="profileDropdown" style="display: none;">
+            <a href="settings.html">Settings</a>
+            <a href="#" id="logoutBtn">Logout</a>
+        </div>
+
+        <!-- FAB Menu -->
+        <div class="fab-menu" id="fabMenu" style="display: none;">
+            <a href="add-contact.html" class="fab-menu-item">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M17 12h-5v5h-2v-5H5v-2h5V5h2v5h5z"/></svg>
+                Add Contact
+            </a>
+            <a href="transaction.html?mode=quick" class="fab-menu-item">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M17 12h-5v5h-2v-5H5v-2h5V5h2v5h5z"/></svg>
+                Quick Transaction
+            </a>
+        </div>
+    </div>
+
+    <script src="js/storage.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

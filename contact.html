@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="back-btn" id="backBtn">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20z"/></svg>
+                </button>
+            </div>
+            <div class="contact-header-info">
+                <div class="avatar avatar-large" id="contactAvatar">A</div>
+                <div>
+                    <h1 class="contact-name" id="contactName">Contact Name</h1>
+                    <p class="contact-phone" id="contactPhone">+91 98765 43210</p>
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="menu-btn" id="contactMenuBtn">⋮</button>
+            </div>
+        </header>
+
+        <!-- Contact Summary -->
+        <div class="contact-summary">
+            <div class="summary-status">
+                <span class="status-text" id="statusText">You will get</span>
+                <span class="status-amount" id="statusAmount">₹0</span>
+            </div>
+        </div>
+
+        <!-- Transactions Area -->
+        <main class="transactions-grid">
+            <div class="transaction-column">
+                <h3>Timeline</h3>
+                <div class="transaction-list" id="transactionList"></div>
+            </div>
+            <div class="transaction-column">
+                <h3>You Gave (₹)</h3>
+                <div class="transaction-amounts" id="gaveList"></div>
+            </div>
+            <div class="transaction-column">
+                <h3>You Got (₹)</h3>
+                <div class="transaction-amounts" id="gotList"></div>
+            </div>
+        </main>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button class="btn btn-primary" id="gaveBtn">You Gave</button>
+            <button class="btn btn-success" id="gotBtn">You Got</button>
+        </div>
+
+        <!-- Contact Menu -->
+        <div class="dropdown-menu" id="contactMenu" style="display: none;">
+            <a href="#">Edit Contact</a>
+            <a href="#">Delete Contact</a>
+            <a href="#">Export CSV</a>
+            <a href="#">Share</a>
+        </div>
+    </div>
+
+    <script src="js/storage.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>

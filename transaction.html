@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="back-btn" id="backBtn">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20z"/></svg>
+                </button>
+            </div>
+            <h1 class="header-title" id="txTitle">New Transaction</h1>
+            <div class="header-right"></div>
+        </header>
+
+        <!-- Form -->
+        <main class="transaction-form">
+            <!-- Contact Selection (for new transactions) -->
+            <div class="form-group" id="contactSelectGroup" style="display: none;">
+                <label>Contact</label>
+                <select id="contactSelect" class="form-input">
+                    <option value="">Select a contact</option>
+                </select>
+            </div>
+
+            <!-- Amount -->
+            <div class="form-group">
+                <label>Amount (₹)</label>
+                <input type="number" id="amountInput" class="form-input" placeholder="0" autofocus>
+            </div>
+
+            <!-- Transaction Type (for new transactions) -->
+            <div class="form-group" id="typeSelectGroup" style="display: none;">
+                <label>Type</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="type" value="GIVE" checked>
+                        You Gave
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="type" value="GOT">
+                        You Got
+                    </label>
+                </div>
+            </div>
+
+            <!-- Date & Time -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" id="dateInput" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label>Time</label>
+                    <input type="time" id="timeInput" class="form-input">
+                </div>
+            </div>
+
+            <!-- Notes -->
+            <div class="form-group">
+                <label>Notes</label>
+                <textarea id="notesInput" class="form-input" placeholder="Add notes..." maxlength="500"></textarea>
+                <div class="char-count"><span id="charCount">0</span>/500</div>
+            </div>
+
+            <!-- Image Upload -->
+            <div class="form-group">
+                <label>Attach Bills/Photos</label>
+                <div class="image-upload">
+                    <input type="file" id="fileInput" accept="image/jpeg,image/png" multiple style="display: none;">
+                    <button type="button" id="uploadBtn" class="btn-secondary">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                        Upload Images
+                    </button>
+                </div>
+                <div class="image-previews" id="imagePreviews"></div>
+            </div>
+
+            <!-- Save Button -->
+            <button class="btn btn-primary btn-large" id="saveBtn">Save</button>
+        </main>
+    </div>
+
+    <script src="js/storage.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/transaction.js"></script>
+</body>
+</html>

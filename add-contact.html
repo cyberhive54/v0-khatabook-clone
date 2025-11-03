@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Contact</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="back-btn" id="backBtn">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20z"/></svg>
+                </button>
+            </div>
+            <h1 class="header-title" id="pageTitle">Add Contact</h1>
+            <div class="header-right"></div>
+        </header>
+
+        <!-- Form -->
+        <main class="form-container">
+            <div class="form-group">
+                <label>Profile Photo</label>
+                <div class="photo-upload">
+                    <div class="avatar avatar-xlarge" id="photoPreview">A</div>
+                    <input type="file" id="photoInput" accept="image/jpeg,image/png" style="display: none;">
+                    <button type="button" class="btn-secondary" id="photoBtn">Upload Photo</button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Name *</label>
+                <input type="text" id="nameInput" class="form-input" placeholder="Enter name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="tel" id="phoneInput" class="form-input" placeholder="+91 98765 43210">
+            </div>
+
+            <div class="form-group">
+                <label>Address</label>
+                <textarea id="addressInput" class="form-input" placeholder="Enter address"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Notes</label>
+                <textarea id="notesInput" class="form-input" placeholder="Add notes..."></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                <button class="btn btn-primary" id="saveBtn">Save Contact</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/storage.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/add-contact.js"></script>
+</body>
+</html>
